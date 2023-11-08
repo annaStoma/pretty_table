@@ -1,4 +1,4 @@
-# pretty_table
+# Pretty Table 🐠
 
 Create a "functional" table (like a spread sheet) where rows can be filtered, sorted, and the table paginated.
 
