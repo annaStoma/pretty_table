@@ -42,6 +42,10 @@ export class StartPageComponent implements OnInit {
       .subscribe(data => {
         data.items = data.items.map(item => ({
           ...item,
+          balance: item.balance || '-',
+          company: item.company || '-',
+          email: item.email || '-',
+          picture: item.picture || '-',
           nameCustom: `${item.name?.first} ${item.name?.last}`,
           tagsCustom: item.tags.join(', '),
           activeCustom: item.isActive ? 'Yes' : 'No',
