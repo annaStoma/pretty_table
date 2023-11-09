@@ -34,7 +34,7 @@ export class TableComponent<T> implements OnInit {
 
   applyFilter(column: string, filterValue: string): void {
     this.dataSource.filterPredicate = (data: T, filter: string) => {
-      return data[column].trim().toLowerCase() === filter.trim().toLowerCase();
+      return String(data[column])?.trim().toLowerCase() === filter?.trim().toLowerCase();
     };
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {

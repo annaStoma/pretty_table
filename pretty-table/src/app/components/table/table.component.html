@@ -7,7 +7,7 @@
                     class="pretty-table__option"
                     (click)="onChange(!column?.hidden, i)"
                     [value]="column.name">
-          {{column?.name}}
+          {{column?.nameInTable || column?.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -19,7 +19,7 @@
         <ng-container [matColumnDef]="column.name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             <div class="pretty-table__table-header">
-              {{column?.name}}
+              {{column?.nameInTable || column?.name}}
               <div>
                 <input class="pretty-table__filter-input"
                        (keyup)="applyFilter(column?.name, $event?.target?.value)"

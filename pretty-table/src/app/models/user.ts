@@ -1,8 +1,24 @@
 export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
+  _id: string;
+  isActive: boolean;
+  balance: string;
+  picture: string;
+  age: number;
+  name: {
+    first: string;
+    last: string;
+  };
+  company: string;
+  email: string;
+  address: string;
+  tags: string[];
+  favoriteFruit: string;
+}
+
+export interface UserDataCustom extends UserData {
+  activeCustom: string;
+  nameCustom: string;
+  tagsCustom: string;
 }
 
 export interface Grid<T> {
