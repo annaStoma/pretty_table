@@ -1,45 +1,44 @@
 .pretty-table {
-  ::ng-deep {
-    .mdc-data-table__header-cell {
-      padding: 0;
-    }
-  }
+	::ng-deep {
+		.mdc-data-table__header-cell {
+			padding: 0;
+		}
+	}
 
-  &__table-wrapper-fixed-height {
-    max-height: 316px;
-    overflow: scroll;
-    overflow-x: hidden;
-  }
+	&__table-wrapper-fixed-height {
+		max-height: 316px;
+		overflow: scroll;
+		overflow-x: hidden;
+	}
 
-  &__table-wrapper {
-    max-height: calc(100vh - 150px);
-    overflow: auto;
-  }
+	&__table-wrapper {
+		max-height: calc(100vh - 150px);
+		overflow: auto;
+	}
 
-  &__hide-cols {
-    display: flex;
-    justify-content: flex-end;
-  }
+	&__hide-cols {
+		display: flex;
+		justify-content: flex-end;
+	}
 
-  &__table-header {
-    font-weight: bold;
-    text-transform: capitalize;
-  }
+	&__table-header {
+		font-weight: bold;
+		text-transform: capitalize;
+	}
 
-  &__option {
-    text-transform: capitalize;
-  }
+	&__option {
+		text-transform: capitalize;
+	}
 
-  &__filter-input {
-    padding: 5px;
-    border: 1px solid #dbdbdb;
-    border-radius: 5px;
-    margin-top: 5px;
-    width: 80%;
+	&__filter-input {
+		padding: 5px;
+		border: 1px solid #dbdbdb;
+		border-radius: 5px;
+		margin-top: 5px;
+		width: 80%;
 
-    &::placeholder {
-      opacity: .8;
-    }
-
-  }
+		&::placeholder {
+			opacity: 0.8;
+		}
+	}
 }

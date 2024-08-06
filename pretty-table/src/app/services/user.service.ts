@@ -1,18 +1,17 @@
-import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
-import {Grid, UserData} from "../models/user";
-import {HttpClient} from "@angular/common/http";
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs'
+import { Grid, UserData } from '../models/user'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class UserService {
-  private url: string = '/assets/data.json'
+	private url: string = '/assets/data.json'
 
-  constructor(private http: HttpClient) {
-  }
+	constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<Grid<UserData>> {
-    return this.http.get<Grid<UserData>>(this.url);
-  }
+	getUsers(): Observable<Grid<UserData>> {
+		return this.http.get<Grid<UserData>>(this.url)
+	}
 }

@@ -1,44 +1,48 @@
-<div *ngIf="!!displayedColumns" class="mat-elevation-z8 pretty-table">
-  <div *ngIf="!!manageColumnsMode" class="pretty-table__hide-cols">
-    <mat-form-field>
-      <mat-label>Show/Hide Columns</mat-label>
-      <mat-select [(ngModel)]="columnsProps" multiple>
-        <mat-option *ngFor="let column of displayedColumns; let i = index"
-                    class="pretty-table__option"
-                    (click)="onChange(!column?.hidden, i)"
-                    [value]="column.name">
-          {{column?.nameInTable || column?.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div [ngClass]="{ 'pretty-table__table-wrapper-fixed-height' : fixedHeight}"
-       class="pretty-table__table-wrapper">
-    <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container *ngFor="let column of displayedColumns">
-        <ng-container [matColumnDef]="column.name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <div class="pretty-table__table-header">
-              {{column?.nameInTable || column?.name}}
-              <div>
-                <input class="pretty-table__filter-input"
-                       (keyup)="applyFilter(column?.name, $event?.target?.value)"
-                       (click)="$event.stopPropagation()"
-                       placeholder="Filter {{column?.name}}"/>
-              </div>
-            </div>
-          </th>
-          <td mat-cell *matCellDef="let row"> {{row[column?.name]}} </td>
-        </ng-container>
-      </ng-container>
+@if (!!displayedColumns) {
+	<div class="mat-elevation-z8 pretty-table">
+		@if (!!manageColumnsMode) {
+			<div class="pretty-table__hide-cols">
+				<mat-form-field>
+					<mat-label>Show/Hide Columns</mat-label>
+					<mat-select [(ngModel)]="columnsProps" multiple>
+						@for (column of displayedColumns; track column; let i = $index) {
+							<mat-option class="pretty-table__option" (click)="onChange(!column?.hidden, i)" [value]="column.name">
+								{{ column?.nameInTable || column?.name }}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+			</div>
+		}
+		<div [ngClass]="{ 'pretty-table__table-wrapper-fixed-height': fixedHeight }" class="pretty-table__table-wrapper">
+			<table mat-table [dataSource]="dataSource" matSort>
+				@for (column of displayedColumns; track column.name) {
+					<ng-container [matColumnDef]="column.name">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header>
+							<div class="pretty-table__table-header">
+								{{ column?.nameInTable || column?.name }}
+								<div>
+									<input
+										class="pretty-table__filter-input"
+										(keyup)="applyFilter(column?.name, $event?.target?.value)"
+										(click)="$event.stopPropagation()"
+										placeholder="Filter {{ column?.name }}"
+									/>
+								</div>
+							</div>
+						</th>
+						<td mat-cell *matCellDef="let row">{{ row[column?.name] }}</td>
+					</ng-container>
+				}
 
-      <tr mat-header-row *matHeaderRowDef="columnsProps"></tr>
-      <tr mat-row *matRowDef="let row; columns: columnsProps;"></tr>
+				<tr mat-header-row *matHeaderRowDef="columnsProps"></tr>
+				<tr mat-row *matRowDef="let row; columns: columnsProps"></tr>
 
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data</td>
-      </tr>
-    </table>
-  </div>
-  <mat-paginator [pageSizeOptions]="pageSizeOptions" aria-label="Select page"></mat-paginator>
-</div>
+				<tr class="mat-row" *matNoDataRow>
+					<td class="mat-cell" colspan="4">No data</td>
+				</tr>
+			</table>
+		</div>
+		<mat-paginator [pageSizeOptions]="pageSizeOptions" aria-label="Select page"></mat-paginator>
+	</div>
+}

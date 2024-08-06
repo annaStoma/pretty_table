@@ -1,10 +1,11 @@
-<mat-spinner *ngIf="showSpinner" class="start-page-__spinner" diameter="100"></mat-spinner>
-<app-table
-  *ngIf="data"
-  class="start-page-table__width"
-  [displayedColumns]="displayedColumns"
-  [manageColumnsMode]="true"
-  [fixedHeight]="false"
-  [data]="data"
-></app-table>
-
+@if (showSpinner()) {
+	<mat-spinner class="start-page-__spinner" diameter="100"></mat-spinner>
+} @else {
+	<app-table
+		class="start-page-table__width"
+		[displayedColumns]="displayedColumns"
+		[manageColumnsMode]="true"
+		[fixedHeight]="false"
+		[data]="data"
+	></app-table>
+}

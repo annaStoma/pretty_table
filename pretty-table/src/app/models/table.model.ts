@@ -1,5 +1,5 @@
 export interface DisplayedColumns {
-  name: string;
-  nameInTable?: string;
-  hidden: boolean;
+	name: string
+	nameInTable?: string
+	hidden: boolean
 }

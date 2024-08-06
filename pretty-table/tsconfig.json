@@ -1,8 +1,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "noUnusedLocals": true /* Report errors on unused locals. */,
-    "noUnusedParameters": true /* Report errors on unused parameters. */,
+    "noUnusedLocals": true
+    /* Report errors on unused locals. */,
+    "noUnusedParameters": true
+    /* Report errors on unused parameters. */,
     "noImplicitReturns": true,
     "importHelpers": true,
     "module": "es2020",
@@ -13,15 +15,22 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "target": "es2015",
-    "types": ["googlemaps"],
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
+    "types": [
+      "googlemaps"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "plugins": [
       {
         "name": "tslint-language-service"
       }
     ],
-    "outDir": "../out-tsc/app",
+    "outDir": "./dist/out-tsc",
     "baseUrl": "./"
   },
   "angularCompilerOptions": {
@@ -30,6 +39,13 @@
     "fullTemplateTypeCheck": true,
     "allowSyntheticDefaultImports": true
   },
-  "files": ["main.ts", "polyfills.ts"],
-  "include": ["../src/*.ts", "../src/**/*.d.ts", "../node_modules/@nebular/**/*.ts"]
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "../src/*.ts",
+    "../src/**/*.d.ts",
+    "../node_modules/@nebular/**/*.ts"
+  ]
 }
